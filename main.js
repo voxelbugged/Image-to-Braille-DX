@@ -4,13 +4,13 @@ var settings = {
 	last_source: "",
 
 	width: 62,
-	extrabrightness: 0,
+	threshold: 128,
 	greyscale_mode: "luminance",
 	inverted: false,
 	dithering: false,
 	monospace: false,
 }
-var brightness_slider = document.getElementById("extrabrightness")
+var brightness_slider = document.getElementById("threshold")
 
 function setUIElement(selector, value) {
 	const elem = document.querySelector(selector);
@@ -71,7 +71,7 @@ function initUI() {
 
 brightness_slider.oninput = function()
 {
-	settings.extrabrightness = this.value;
+	settings.threshold = parseInt(this.value);
 	parseCanvas(settings.last_canvas);
 }
 

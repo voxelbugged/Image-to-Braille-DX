@@ -47,9 +47,6 @@ function pixelsToCharacter(pixels_lo_hi) { //expects an array of 8 bools
 }
 
 function toGreyscale(r, g, b) {
-	r += parseFloat(settings.extrabrightness);
-	g += parseFloat(settings.extrabrightness);
-	b += parseFloat(settings.extrabrightness);
 	switch(settings.greyscale_mode) {
 		case "luminance":
 			return (0.22 * r) + (0.72 * g) + (0.06 * b);
@@ -97,9 +94,9 @@ function canvasToText(canvas) {
 					if(pixel_data[3] >= 128) { //account for alpha
 						const grey = toGreyscale(pixel_data[0], pixel_data[1], pixel_data[2]);
 						if(settings.inverted) {
-							if(grey >= 128) braille_info[dot_index] = 1;
+							if(grey >= settings.threshold) braille_info[dot_index] = 1;
 						} else {
-							if(grey <= 128) braille_info[dot_index] = 1;
+							if(grey <= settings.threshold) braille_info[dot_index] = 1;
 						}
 					}
 					dot_index++;
