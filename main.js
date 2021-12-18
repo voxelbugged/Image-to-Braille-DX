@@ -1,14 +1,16 @@
-const settings = {
+var settings = {
 	last_canvas: null,
 	last_dithering: null,
 	last_source: "",
 
 	width: 62,
+	extrabrightness: 0,
 	greyscale_mode: "luminance",
 	inverted: false,
 	dithering: false,
 	monospace: false,
 }
+var brightness_slider = document.getElementById("extrabrightness")
 
 function setUIElement(selector, value) {
 	const elem = document.querySelector(selector);
@@ -66,6 +68,12 @@ function initUI() {
 		 document.execCommand("copy");
 	}
 }
+
+brightness_slider.oninput = function()
+{
+	settings.extrabrightness = this.value;
+}
+
 
 async function loadNewImage(src) {
 	if(src === undefined) return;

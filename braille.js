@@ -47,6 +47,9 @@ function pixelsToCharacter(pixels_lo_hi) { //expects an array of 8 bools
 }
 
 function toGreyscale(r, g, b) {
+	r += parseFloat(settings.extrabrightness);
+	g += parseFloat(settings.extrabrightness);
+	b += parseFloat(settings.extrabrightness);
 	switch(settings.greyscale_mode) {
 		case "luminance":
 			return (0.22 * r) + (0.72 * g) + (0.06 * b);
