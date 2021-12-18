@@ -72,6 +72,7 @@ function initUI() {
 brightness_slider.oninput = function()
 {
 	settings.extrabrightness = this.value;
+	parseCanvas(settings.last_canvas);
 }
 
 
