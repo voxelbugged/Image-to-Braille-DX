@@ -54,9 +54,11 @@ h2 {
 	padding-top: 10px;
 	padding-bottom: 10px;
 }
-div[title="Threshold"] {
+
+#options > div[title="Threshold"] {
 	padding-top: 0px;
 }
+
 input[type="number"] {
 	width: 60px;
 }
