@@ -13,6 +13,11 @@ body {
 h2 {
 	text-align:center;
 }
+
+textarea {
+	border:none;
+}
+
 #text {
 	display: block;
 	white-space: pre;
@@ -28,7 +33,7 @@ h2 {
 }
 
 #text.dark {
-	background: black;
+	background: #111;
 	color: white;
 }
 
