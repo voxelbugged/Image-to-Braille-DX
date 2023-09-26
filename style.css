@@ -35,6 +35,7 @@ body {
 	flex-direction: column;
 	flex: 0 0 20%;
 	text-align:left;
+	text-shadow:1px 1px 1px black;
 	border-left: 10px solid #333;
 	user-select: none;
 	overflow: hidden;
