@@ -33,13 +33,13 @@ h2 {
 }
 
 #options {
-	background:linear-gradient(to right, rgba(10,0,0,0.5),rgba(10,0,0,0),rgba(10,0,0,0.5)), url('img/ui/panel.png');
+	background:linear-gradient(to right, rgba(10,0,0,0.5),rgba(10,0,0,0),rgba(10,0,0,0.5)), url('panel.png');
 	display: flex;
 	flex-direction: column;
 	flex: 0 0 20%;
 	text-align:left;
-	text-shadow:1px 1px 1px #111;
-	border-left: 10px solid #333;
+	text-shadow:1px 1px 1px #111;	
+	padding:10px;
 	user-select: none;
 	overflow: hidden;
 }
