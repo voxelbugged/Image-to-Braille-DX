@@ -9,9 +9,8 @@ var settings = {
 	inverted: false,
 	dithering: false,
 	monospace: false,
+	thresholdUsed: null
 }
-var brightness_slider = document.getElementById("threshold")
-
 function setUIElement(selector, value) {
 	const elem = document.querySelector(selector);
 	switch(elem.getAttribute("type")) { //should all be <input>
@@ -43,13 +42,13 @@ function initUI() {
 		 loadNewImage(URL.createObjectURL(e.target.files[0]));
 	}
 
-	setUIElement('#darktheme', settings.inverted).onchange = (e) => {
+	setUIElement('#inverted', settings.inverted).onchange = (e) => {
 		const element = document.querySelector('#text');
 		if(e.target.checked) element.classList.add("dark");
 		else element.classList.remove("dark");
+		settings.inverted = e.target.checked; r();
 	};
 
-	setUIElement('#inverted', settings.inverted).onchange = (e) => {settings.inverted = e.target.checked; r()};
 	setUIElement('#dithering', settings.dithering).onchange = (e) => {settings.dithering = e.target.checked; r()};
 	setUIElement('#monospace', settings.monospace).onchange = (e) => {settings.monospace = e.target.checked; r()};
 
@@ -66,14 +65,16 @@ function initUI() {
 	document.querySelector('#clipboard').onclick = (e) => {
 		 document.querySelector('#text').select();
 		 document.execCommand("copy");
+	};
+
+	document.querySelector('#threshold').oninput = (e) => {
+		settings.threshold = parseInt(e.target.value);
+		document.querySelector('#threshcount').innerText = e.target.value;
+		parseCanvas(settings.last_canvas);
 	}
 }
 
-brightness_slider.oninput = function()
-{
-	settings.threshold = parseInt(this.value);
-	parseCanvas(settings.last_canvas);
-}
+
 
 
 async function loadNewImage(src) {

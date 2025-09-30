@@ -41,23 +41,39 @@ textarea {
 	background:linear-gradient(to right, rgba(10,0,0,0.5),rgba(10,0,0,0),rgba(10,0,0,0.5)), url('panel.png');
 	display: flex;
 	flex-direction: column;
-	flex: 0 0 20%;
+	flex: 0 0 18%;
 	text-align:left;
 	text-shadow:1px 1px 1px #111;	
-	padding:10px;
+	padding-left:20px;
+	padding-right:20px;
 	user-select: none;
 	overflow: hidden;
+}
+
+#footer
+{
+	text-align:center;
+	position:fixed;
+	bottom:0;
+	width:18%;
 }
 
 @media screen and (orientation:portrait) {
 	#options {
 		flex: 0 0 40%;
 	}
+	#footer {
+		width:40%;
+	}
 }
 
 #options > div {
 	padding-top: 10px;
 	padding-bottom: 10px;
+}
+#options > .separator_div{
+	padding-top: 0;
+	padding-bottom: 0;
 }
 
 #options > div[title="Threshold"] {

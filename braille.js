@@ -61,7 +61,7 @@ function toGreyscale(r, g, b) {
 			return Math.max(r,g,b);
 
 		default:
-			console.error("Greyscale mode is not valid");
+			console.error("Grayscale mode is not valid!");
 			return 0;
 	}
 }
@@ -72,9 +72,14 @@ function canvasToText(canvas) {
 	const height = canvas.height;
 
 	let image_data = [];
-	if(settings.dithering) {
-		if(settings.last_dithering === null || settings.last_dithering.canvas !== canvas) {
+	if (settings.dithering) {
+		if (
+			settings.last_dithering === null ||
+			settings.last_dithering.canvas !== canvas ||
+			settings.last_dithering.thresholdUsed !== settings.threshold
+		) {
 			settings.last_dithering = new Dithering(canvas);
+			settings.last_dithering.thresholdUsed = settings.threshold;
 		}
 		image_data = settings.last_dithering.image_data;
 	} else {

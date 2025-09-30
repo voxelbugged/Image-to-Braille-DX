@@ -23,7 +23,7 @@ function Dithering(canvas) {
 	}
 
 	const _closestPalleteColour = (pixel) => {
-		return (0.2126*pixel[0] + 0.7152*pixel[1] + 0.0722*pixel[2]) > 128 ? [255,255,255] : [0,0,0];
+		return (0.2126*pixel[0] + 0.7152*pixel[1] + 0.0722*pixel[2]) > settings.threshold ? [255,255,255] : [0,0,0];
 	}
 
 	const _colourDifference = (one, two) => {
